@@ -29,7 +29,7 @@ export class AppComponent implements OnInit {
     task.finishDate = null;
   }
 
-  public filterTask(isDone) {
+  public filterTasks(isDone) {
     return this.tasks.filter( x => x.isDone === isDone);
   }
 

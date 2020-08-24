@@ -29,7 +29,7 @@ var AppComponent = /** @class */ (function () {
         task.isDone = false;
         task.finishDate = null;
     };
-    AppComponent.prototype.filterTask = function (isDone) {
+    AppComponent.prototype.filterTasks = function (isDone) {
         return this.tasks.filter(function (x) { return x.isDone === isDone; });
     };
     AppComponent.prototype.ngOnInit = function () {

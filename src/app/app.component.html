@@ -1,0 +1,48 @@
+<div class="container">
+    <div class="add-task">
+        <div>
+            <label>Nazwa</label>
+            <input type="text" [(ngModel)]="newTask.name" />
+        </div>
+        <div>
+            <label>Opis</label>
+            <textarea type="text" [(ngModel)]="newTask.description"></textarea>
+        </div>
+        <div>
+            <select [(ngModel)]="newTask.priority">
+      <option [value]="0">Mało ważne</option>
+      <option [value]="1"> Średnio ważne </option>
+      <option [value]="2">Bardzo ważne</option>
+    </select>
+        </div>
+        <div>
+            <button type="submit" (click)="addTask()">Dodaj zadanie</button>
+        </div>
+    </div>
+
+    <div class="todo-list">
+        <div class="todo-list-container">
+            <h2>Zadania do zrobienia</h2>
+            <ul>
+                <li [class.medium]="task.priority==1" [class.important]="task.priority==2" *ngFor="let task of filterTasks(false)" (click)="makeTaskDone(task)">
+                    <span>{{task.name}}</span>
+                    <span>{{task.description}}</span>
+                    <span>{{task.priority | priority}}</span>
+                    <span> {{task.createdDate | date: 'short'}} </span>
+                </li>
+            </ul>
+        </div>
+        <div class="todo-list-container">
+            <h2>Zadania ukończone</h2>
+            <ul>
+                <li [class.medium]="task.priority==1" [class.important]="task.priority==2" *ngFor="let task of filterTasks(true)" (click)="makeTaskAvailable(task)">
+                    <span>{{task.name}}</span>
+                    <span>{{task.description}}</span>
+                    <span>{{task.priority | priority}}</span>
+                    <span> {{task.createdDate | date: 'short'}} </span>
+                    <span> {{task.finishDate | date: 'short'}} </span>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

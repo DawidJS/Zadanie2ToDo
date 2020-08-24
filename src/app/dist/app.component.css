@@ -1,0 +1,16 @@
+.add-task div {
+  display: flex;
+  flex-direction: column;
+  margin: 5px 0;
+}
+.add-task div label {
+  margin: 2px 0;
+}
+.todo-list {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.todo-list .todo-list-container {
+  width: 50%;
+}
