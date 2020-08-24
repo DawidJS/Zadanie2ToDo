@@ -19,7 +19,7 @@
             <button type="submit" (click)="addTask()">Dodaj zadanie</button>
         </div>
     </div>
-
+    <!-- ---------- -->
     <div class="todo-list">
         <div class="todo-list-container">
             <h2>Zadania do zrobienia</h2>
@@ -35,7 +35,7 @@
         <div class="todo-list-container">
             <h2>Zadania ukończone</h2>
             <ul>
-                <li [class.medium]="task.priority==1" [class.important]="task.priority==2" *ngFor="let task of filterTasks(true)" (click)="makeTaskAvailable(task)">
+                <li class="liDone" [class.medium]="task.priority==1" [class.important]="task.priority==2" *ngFor="let task of filterTasks(true)" (click)="makeTaskAvailable(task)">
                     <span>{{task.name}}</span>
                     <span>{{task.description}}</span>
                     <span>{{task.priority | priority}}</span>

@@ -11,6 +11,29 @@
   display: flex;
   justify-content: center;
 }
+@media screen and (max-width: 650px) {
+  .todo-list {
+    flex-direction: column;
+  }
+}
 .todo-list .todo-list-container {
   width: 50%;
+}
+.todo-list .todo-list-container li {
+  border: 2px solid green;
+  border-radius: 20px;
+  padding: 10px;
+  margin-top: 10px;
+  display: inline-block;
+}
+.todo-list .todo-list-container .liDone {
+  text-decoration: line-through;
+}
+.todo-list .todo-list-container .important {
+  color: red;
+  background-color: aquamarine;
+  font-weight: bold;
+}
+.todo-list .todo-list-container .medium {
+  color: green;
 }
