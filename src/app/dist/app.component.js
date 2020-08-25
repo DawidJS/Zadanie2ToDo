@@ -14,26 +14,48 @@ var AppComponent = /** @class */ (function () {
         this.title = 'ZadanieNr2ToDo';
         this.tasks = [];
         this.newTask = new task_1.Task();
+        this.projects = [];
     }
     AppComponent.prototype.addTask = function () {
         this.newTask.createdDate = new Date();
-        this.newTask.isDone = false;
         this.tasks.push(this.newTask);
         this.newTask = new task_1.Task();
+        this.saveStorage();
+    };
+    AppComponent.prototype.addProject = function (projectName) {
+        this.newProject = '';
+        this.projects.push(projectName);
+        this.saveStorage();
     };
     AppComponent.prototype.makeTaskDone = function (task) {
         task.isDone = true;
         task.finishDate = new Date();
+        this.saveStorage();
     };
     AppComponent.prototype.makeTaskAvailable = function (task) {
         task.isDone = false;
         task.finishDate = null;
+        this.saveStorage();
     };
     AppComponent.prototype.filterTasks = function (isDone) {
         return this.tasks.filter(function (x) { return x.isDone === isDone; });
     };
     AppComponent.prototype.ngOnInit = function () {
         this.newTask = new task_1.Task();
+        if (localStorage) {
+            var tasks = localStorage.getItem("tasks");
+            if (tasks)
+                this.tasks = JSON.parse(tasks);
+            var projects = localStorage.getItem("projects");
+            if (projects)
+                this.projects = JSON.parse(projects);
+        }
+    };
+    AppComponent.prototype.saveStorage = function () {
+        if (localStorage) {
+            localStorage.setItem("tasks", JSON.stringify(this.tasks));
+            localStorage.setItem("projects", JSON.stringify(this.projects));
+        }
     };
     AppComponent = __decorate([
         core_1.Component({

@@ -13,7 +13,7 @@ var PriorityPipe = /** @class */ (function () {
     }
     PriorityPipe.prototype.transform = function (value, args) {
         if (args === void 0) { args = ''; }
-        return value === 0 ? 'normalny' : (value === 1 ? 'średni' : 'ważny');
+        return value == 0 ? 'normalny' : (value == 1 ? 'średni' : 'ważny');
     };
     PriorityPipe = __decorate([
         core_1.Pipe({

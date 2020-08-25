@@ -3,6 +3,8 @@ exports.__esModule = true;
 exports.PriorityEnum = exports.Task = void 0;
 var Task = /** @class */ (function () {
     function Task() {
+        this.isDone = false;
+        this.priority = 0;
     }
     return Task;
 }());

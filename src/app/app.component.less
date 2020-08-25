@@ -1,58 +1,129 @@
-button, li {
+button,
+li {
   cursor: pointer;
 }
 
+* {
+  font-size: 15px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
 .add-task {
-    
-    div {
-      display: flex;
-      flex-direction: column;
-      margin: 5px 0;
-      
-      label {
-        margin: 2px 0;
-      }
-    }
-    .taskPriority {
-      margin: 20px 0 20px 0;
+ flex: 2 1 auto;
+ background-color: whitesmoke;
+ border-radius: 4px;
+ margin: 3px;
+ min-width: 400px;
+  div {
+    display: flex;
+    flex-direction: column;
+    margin: 5px 0;
+
+    label {
+      margin: 2px 0;
     }
   }
-  
-  .todo-list {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    @media screen and (max-width: 650px){
-        flex-direction: column;
-    }
-  
-    .todo-list-container {
-      width: 50%;
 
-      li {
-        border: 2px solid green;
-        border-radius: 20px;
-        padding: 10px;
-        margin-top: 10px;
-        display: flex;
-        flex-direction: column;
-        span{
-          display: block;
-          padding: 5px;
-          overflow: auto;
+  .taskPriority {
+    margin: 20px 0 20px 0;
+  }
+
+  .btnSubmit {
+    background-color: aqua;
+    max-width: 220px;
+    border-radius: 20px;
+    padding: 10px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+  }
+
+  .o1 {
+    color: green;
+  }
+
+  .o2 {
+    color: red;
+    font-weight: bold;
+  }
+}
+
+.projects {
+  flex: 1 1 auto;
+  background-color: whitesmoke;
+  border-radius: 4px;
+  margin: 3px;
+  min-width: 200px;
+  .projectList {
+    max-height: 100px;
+    overflow-y: auto;
+    background-color: white;
+    border: 1px solid gray;
+    border-radius: 4px;;
+  }
+}
+
+
+.header {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: stretch;
+  width: 100%
+}
+
+.todo-list {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-content: stretch;
+  justify-items: stretch;
+  align-items: stretch;
+
+  .todo-list-container {
+    flex: 1 1 auto;
+    margin: 6px;
+    text-align: center;
+    background-color: whitesmoke;
+    border-radius: 4px;
+    min-width: 400px;
+    box-shadow: 1px 1px 3px gray;
+
+    table {
+        width: 100%;
+    }
+    tr {
+      
+      background-color: white;
+      padding: 4px;
+
+      &:nth-of-type(2n+1){
+        background-color: lightgray;
+      }
+
+      span {
+        display: block;
+        padding: 5px;
+        overflow: hidden;
+
+        &:nth-of-type(1){
+          flex: 1 1 30%;
+        }
+        &:nth-of-type(2){
+          flex: 1 1 40%;
         }
       }
-      .liDone{
-          text-decoration: line-through;
-      }
-      .important{
-          color: red;
-          background-color: aquamarine;
-          font-weight: bold;
-      }
-      .medium {
-          color: green;
-      }
     }
-    
+
+    .important {
+      color: red;
+      background-color: aquamarine;
+    }
+
+    .medium {
+      color: green;
+      background-color: yellow;
+    }
   }
+
+}

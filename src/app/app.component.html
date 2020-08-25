@@ -1,48 +1,75 @@
 <div class="container">
-    <div class="add-task">
-        <div>
-            <label>Nazwa</label>
-            <input type="text" [(ngModel)]="newTask.name" />
+
+    <div class="header">
+        <div class="projects">
+            <div>
+                <label>Nazwa</label>
+                <input type="text" placeholder="podaj nazwe zadania" [(ngModel)]="newProject" />
+                <button class="btnSubmit" type="submit" (click)="addProject(newProject)">Dodaj projekt</button>
+            </div>
+            <div class="projectList">
+                <ul>
+                    <li *ngFor="let project of projects">
+                        {{project}}
+                    </li>
+                </ul>
+            </div>
         </div>
-        <div>
-            <label>Opis</label>
-            <textarea type="text" [(ngModel)]="newTask.description"></textarea>
-        </div>
-        <div class="taskPriority">
-            <select [(ngModel)]="newTask.priority">
-                <option [value]="0">Mało ważne</option>
-                <option [value]="1"> Średnio ważne </option>
-                <option [value]="2">Bardzo ważne</option>
+        <div class="add-task">
+            <div>
+                <label>Nazwa</label>
+                <input type="text" placeholder="podaj nazwe zadania" [(ngModel)]="newTask.name" />
+            </div>
+            <div>
+                <label>Opis</label>
+                <textarea type="text" placeholder="podaj opis zadania" [(ngModel)]="newTask.description"></textarea>
+            </div>
+            <div class="taskProject">Wybierz projekt
+                <select required [(ngModel)]="newTask.project">
+                <option [value]="null">-- brak --</option>
+                <option *ngFor="let p of projects" [value]="p">{{p}}</option>
             </select>
-        </div>
-        <div>
-            <button type="submit" (click)="addTask()">Dodaj zadanie</button>
+            </div>
+            <div class="taskPriority">Wybierz ważność
+                <select required [(ngModel)]="newTask.priority">
+                <option [value]="0">Mało ważne</option>
+                <option class="o1" [value]="1"> Średnio ważne </option>
+                <option class="o2" [value]="2">Bardzo ważne</option>
+            </select>
+            </div>
+            <div>
+                <button class="btnSubmit" type="submit" (click)="addTask()">Dodaj zadanie</button>
+            </div>
         </div>
     </div>
+
+
     <!-- ---------- -->
     <div class="todo-list">
         <div class="todo-list-container">
             <h2>Zadania do zrobienia</h2>
-            <ul>
-                <li [class.medium]="task.priority==1" [class.important]="task.priority==2" *ngFor="let task of filterTasks(false)" (click)="makeTaskDone(task)">
-                    <span>{{task.name}}</span>
-                    <span>{{task.description}}</span>
-                    <span>{{task.priority | priority}}</span>
-                    <span> {{task.createdDate | date: 'short'}} </span>
-                </li>
-            </ul>
+            <table>
+                <tr [class.medium]="task.priority==1" [class.important]="task.priority==2" *ngFor="let task of filterTasks(false)" (click)="makeTaskDone(task)">
+                    <td>{{task.name}}</td>
+                    <td>{{task.description}}</td>
+                    <td>{{task.project}}</td>
+                    <td>{{task.priority | priority}}</td>
+                    <td>{{task.createdDate | date: 'short'}} </td>
+                </tr>
+            </table>
         </div>
         <div class="todo-list-container">
             <h2>Zadania ukończone</h2>
-            <ul>
-                <li class="liDone" [class.medium]="task.priority==1" [class.important]="task.priority==2" *ngFor="let task of filterTasks(true)" (click)="makeTaskAvailable(task)">
-                    <span>{{task.name}}</span>
-                    <span>{{task.description}}</span>
-                    <span>{{task.priority | priority}}</span>
-                    <span> {{task.createdDate | date: 'short'}} </span>
-                    <span> {{task.finishDate | date: 'short'}} </span>
-                </li>
-            </ul>
+            <table>
+                <tr class="liDone" [class.medium]="task.priority==1" [class.important]="task.priority==2" *ngFor="let task of filterTasks(true)" (click)="makeTaskAvailable(task)">
+                    <td>{{task.name}}</td>
+                    <td>{{task.description}}</td>
+                    <td>{{task.project}}</td>
+                    <td>{{task.priority | priority}}</td>
+                    <td>{{task.createdDate | date: 'short'}} </td>
+                    <td>{{task.finishDate | date: 'short'}} </td>
+                </tr>
+            </table>
         </div>
     </div>
 </div>

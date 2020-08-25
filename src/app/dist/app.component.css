@@ -2,6 +2,17 @@ button,
 li {
   cursor: pointer;
 }
+* {
+  font-size: 15px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.add-task {
+  flex: 2 1 auto;
+  background-color: whitesmoke;
+  border-radius: 4px;
+  margin: 3px;
+  min-width: 400px;
+}
 .add-task div {
   display: flex;
   flex-direction: column;
@@ -13,40 +24,86 @@ li {
 .add-task .taskPriority {
   margin: 20px 0 20px 0;
 }
+.add-task .btnSubmit {
+  background-color: aqua;
+  max-width: 220px;
+  border-radius: 20px;
+  padding: 10px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+.add-task .o1 {
+  color: green;
+}
+.add-task .o2 {
+  color: red;
+  font-weight: bold;
+}
+.projects {
+  flex: 1 1 auto;
+  background-color: whitesmoke;
+  border-radius: 4px;
+  margin: 3px;
+  min-width: 200px;
+}
+.projects .projectList {
+  max-height: 100px;
+  overflow-y: auto;
+  background-color: white;
+  border: 1px solid gray;
+  border-radius: 4px;
+}
+.header {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: stretch;
+  width: 100%;
+}
 .todo-list {
   width: 100%;
   display: flex;
   justify-content: center;
-}
-@media screen and (max-width: 650px) {
-  .todo-list {
-    flex-direction: column;
-  }
+  flex-wrap: wrap;
+  align-content: stretch;
+  justify-items: stretch;
+  align-items: stretch;
 }
 .todo-list .todo-list-container {
-  width: 50%;
+  flex: 1 1 auto;
+  margin: 6px;
+  text-align: center;
+  background-color: whitesmoke;
+  border-radius: 4px;
+  min-width: 400px;
+  box-shadow: 1px 1px 3px gray;
 }
-.todo-list .todo-list-container li {
-  border: 2px solid green;
-  border-radius: 20px;
-  padding: 10px;
-  margin-top: 10px;
-  display: flex;
-  flex-direction: column;
+.todo-list .todo-list-container table {
+  width: 100%;
 }
-.todo-list .todo-list-container li span {
+.todo-list .todo-list-container tr {
+  background-color: white;
+  padding: 4px;
+}
+.todo-list .todo-list-container tr:nth-of-type(2n+1) {
+  background-color: lightgray;
+}
+.todo-list .todo-list-container tr span {
   display: block;
   padding: 5px;
-  overflow: auto;
+  overflow: hidden;
 }
-.todo-list .todo-list-container .liDone {
-  text-decoration: line-through;
+.todo-list .todo-list-container tr span:nth-of-type(1) {
+  flex: 1 1 30%;
+}
+.todo-list .todo-list-container tr span:nth-of-type(2) {
+  flex: 1 1 40%;
 }
 .todo-list .todo-list-container .important {
   color: red;
   background-color: aquamarine;
-  font-weight: bold;
 }
 .todo-list .todo-list-container .medium {
   color: green;
+  background-color: yellow;
 }
