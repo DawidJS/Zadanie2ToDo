@@ -8,12 +8,12 @@
             <label>Opis</label>
             <textarea type="text" [(ngModel)]="newTask.description"></textarea>
         </div>
-        <div>
+        <div class="taskPriority">
             <select [(ngModel)]="newTask.priority">
-      <option [value]="0">Mało ważne</option>
-      <option [value]="1"> Średnio ważne </option>
-      <option [value]="2">Bardzo ważne</option>
-    </select>
+                <option [value]="0">Mało ważne</option>
+                <option [value]="1"> Średnio ważne </option>
+                <option [value]="2">Bardzo ważne</option>
+            </select>
         </div>
         <div>
             <button type="submit" (click)="addTask()">Dodaj zadanie</button>

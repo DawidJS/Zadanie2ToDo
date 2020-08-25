@@ -1,3 +1,7 @@
+button,
+li {
+  cursor: pointer;
+}
 .add-task div {
   display: flex;
   flex-direction: column;
@@ -5,6 +9,9 @@
 }
 .add-task div label {
   margin: 2px 0;
+}
+.add-task .taskPriority {
+  margin: 20px 0 20px 0;
 }
 .todo-list {
   width: 100%;
@@ -24,7 +31,13 @@
   border-radius: 20px;
   padding: 10px;
   margin-top: 10px;
-  display: inline-block;
+  display: flex;
+  flex-direction: column;
+}
+.todo-list .todo-list-container li span {
+  display: block;
+  padding: 5px;
+  overflow: auto;
 }
 .todo-list .todo-list-container .liDone {
   text-decoration: line-through;
